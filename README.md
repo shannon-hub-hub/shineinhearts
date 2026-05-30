@@ -3,9 +3,9 @@
 ## Stack
 - **Frontend**: Next.js 14 + TypeScript + Tailwind CSS
 - **Backend**: Next.js API Routes (REST)
-- **Database**: PostgreSQL 16 with pgvector
+- **Database**: PostgreSQL 
 - **Charts**: Recharts
-- **Auth**: NextAuth.js (admin area)
+- **Authentication**: NextAuth.js with credential-based admin login
 
 ## Quickstart
 
@@ -57,7 +57,6 @@ docker compose up --build
 | POST | `/api/apply` | Submit volunteer application |
 | GET | `/api/admin/stats` | Admin dashboard aggregates |
 | GET/PATCH | `/api/admin/applications` | List + review applications |
-| GET/PATCH | `/api/admin/messages` | List + mark messages read |
 
 ## Database Schema
 9 tables: `chapters`, `members`, `events`, `blog_posts`, `programs`,
