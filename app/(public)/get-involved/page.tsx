@@ -1,29 +1,15 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getMany } from '@/lib/db'
 import { CHAPTERS } from '@/lib/chapters-content'
-import { Chapter } from '@/types'
 import { RevealWrapper } from '@/components/ui/RevealWrapper'
 
 export const metadata: Metadata = { title: 'Get Involved' }
-export const dynamic = 'force-dynamic'
 
 const APPLY_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSc-v40NZxHKSc6IEgGYL5SPqWhm6_9FYE4FuhkCIJFwteBGnQ/viewform'
 
-async function getChapters(): Promise<Chapter[]> {
-  try {
-    const rows = await getMany<Chapter>(`SELECT * FROM chapters ORDER BY country, city`)
-    return rows.length > 0 ? rows : CHAPTERS
-  } catch (error) {
-    console.error('Get Involved page DB fallback:', error)
-    return CHAPTERS
-  }
-}
-
-
-export default async function GetInvolvedPage() {
-  const chapters = await getChapters()
+export default function GetInvolvedPage() {
+  const chapters = CHAPTERS
 
   const programs = [
     { tag: 'Writing &\nStorytelling', label: 'Environmental Writers Collective' },
